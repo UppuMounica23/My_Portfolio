@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mounica Uppu - Data Analyst</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Container for content */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 50px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .animated-name {
+            font-size: 3rem;
+            color: #FFEB3B; /* Yellow color */
+            animation: fadeInName 2s ease-in-out;
+        }
+
+        .animated-paragraph {
+            font-size: 1.2rem;
+            color: #fff; /* White color */
+            margin-top: 10px;
+            animation: fadeInParagraph 2s ease-in-out;
+        }
+
+        @keyframes fadeInName {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInParagraph {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Navbar Menu (initially hidden, positioned on the right side) */
+        .menu {
+            position: fixed;
+            top: 0;
+            right: 0;  /* Menu should open from the right */
+            background-color: #333;
+            width: 0;
+            height: 100%;
+            z-index: 100;
+            transition: width 0.4s ease;
+            padding-top: 60px;
+            overflow-x: hidden;
+        }
+
+        .menu.open {
+            width: 250px;
+        }
+
+        .menu a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: white;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        /* Menu Icon (3 white lines on top right) */
+        .menu-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 35px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-icon div {
+            background-color: white;
+            height: 5px;
+            width: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Portfolio Styles */
+        .portfolio {
+            display: none;
+            padding: 50px;
+            background-color: #333;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .project {
+            background-color: #444;
+            padding: 20px;
+            width: 30%;
+            box-sizing: border-box;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project h3 {
+            font-size: 1.5rem;
+            color: #FFEB3B; /* Yellow color */
+        }
+
+        .project p {
+            font-size: 1rem;
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .project a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .back-btn-icon {
+            background-color: transparent;
+            border: none;
+            color: #FFEB3B;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn-icon:hover {
+            color: #4CAF50;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .projects {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project {
+                width: 80%;
+            }
+
+            .menu a {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Icon (white lines on top right) -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Navbar Menu (Initially hidden, positioned on the right) -->
+    <div id="menu" class="menu">
+        <a href="javascript:void(0);" onclick="showPortfolio()">Portfolio</a>
+        <a href="https://www.linkedin.com/in/uppu-mounica-168100216" target="_blank">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/13gJCKG_v15hfny2-fNLjGWd9uGFMXLgU/view?usp=drivesdk" download>Resume</a>
+        <a href="mailto:uppumounica965@gmail.com">Gmail</a>
+        <a href="tel:+918919252660">Contact</a>
+    </div>
+
+    <!-- Header Section with animated name and description -->
+    <header>
+        <h1 class="animated-name">Mounica Uppu</h1>
+        <p class="animated-paragraph">Data Analyst | Power BI Enthusiast | Visualization Expert</p>
+        <p>With 3 years of experience as a Data Analyst, I specialize in transforming complex data into actionable insights. I am proficient in data visualization using Power BI and Tableau, where I create interactive dashboards, build data models, and implement DAX and Power Query for data transformation. My expertise extends to database management, including SQL, MySQL, and SQL Server, with a focus on query optimization, ELT processes, and designing relational schemas.</p>
+    </header>
+
+    <!-- Portfolio Section -->
+    <div class="portfolio" id="portfolio">
+        <h2>My Portfolio</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Sales Dashboard</h3>
+                <p>Interactive Power BI dashboard for sales performance analysis.</p>
+                <a href="https://github.com/your-repo" target="_blank">GitHub Link</a>
+            </div>
+            <div class="project">
+                <h3>Customer Insights</h3>
+                <p>Power BI dashboard to gain insights into customer demographics.</p>
+                <a href="https://github.com/your-repo" target="_blank">GitHub Link</a>
+            </div>
+            <!-- Add more projects as needed -->
+
+            <!-- Back Button -->
+            <button class="back-btn-icon" onclick="backToMenu()">&larr; Back</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle the menu
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('open');
+        }
+
+        // Show the Portfolio section
+        function showPortfolio() {
+            document.querySelector('header').style.display = 'none';
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('portfolio').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent body scrolling when menu is open
+        }
+
+        // Go back to the menu from Portfolio
+        function backToMenu() {
+            document.querySelector('header').style.display = 'block';
+            document.getElementById('menu').style.display = 'block';
+            document.getElementById('portfolio').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable body scrolling
+        }
+    </script>
+
+</body>
+</html>
